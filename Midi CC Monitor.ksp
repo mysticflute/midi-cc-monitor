@@ -1,0 +1,67 @@
+{***********************************************
+Midi CC Monitor Multi Script
+
+This script provides a quick way to view the
+any current CC value, and also output a live
+view of any CC value changes.
+*************************************************}
+
+on init
+    set_script_title("Midi CC Monitor")
+    set_ui_height(2)
+ 
+    declare ui_button $refresh_button
+    set_text($refresh_button, "Refresh")
+
+    declare ui_label $cc1_label(1, 1)
+    set_text($cc1_label, "CC1: ")
+
+    declare ui_label $cc11_label(1, 1)
+    set_text($cc11_label, "CC11: ")    
+    
+    declare ui_value_edit $cc_custom_input(1, 127, 1)
+    set_text($cc_custom_input, "CC")
+
+    declare ui_label $cc_custom_label(1, 1)
+    set_text($cc_custom_label, " ")
+
+    move_control($cc1_label, 1, 2)
+    move_control($cc11_label, 2, 2)
+    move_control($cc_custom_input, 3, 2)
+    move_control($cc_custom_label, 4, 2)
+
+    set_control_help($refresh_button, "Turn on to retrieve the current value and monitor any changes")
+    set_control_help($cc_custom_input, "Enter a specific CC value to monitor")
+end on
+
+on ui_control ($refresh_button)
+    if ($refresh_button = 1)
+        set_text($cc1_label, "CC1: " & %CC[1])
+        set_text($cc11_label, "CC11: " & %CC[11])
+        set_text($cc_custom_label, "CC" & $cc_custom_input & ": " & %CC[$cc_custom_input])
+    end if
+end on
+
+on ui_control ($cc_custom_input)
+    set_text($cc_custom_label, "CC" & $cc_custom_input & ": " & %CC[$cc_custom_input])
+end on
+
+on midi_in
+    if ($refresh_button = 1)
+        if ($MIDI_COMMAND = $MIDI_COMMAND_CC)
+            if ($MIDI_BYTE_1 = 1)
+                set_text($cc1_label, "CC1: " & $MIDI_BYTE_2)
+            end if
+            if ($MIDI_BYTE_1 = 11)
+                set_text($cc11_label, "CC11: " & $MIDI_BYTE_2)
+            end if
+            if ($MIDI_BYTE_1 = $cc_custom_input)
+                set_text($cc_custom_label, "CC" & $cc_custom_input & ": " & $MIDI_BYTE_2)
+            end if          
+        else
+            set_text($cc1_label, "CC1: " & %CC[1])
+            set_text($cc11_label, "CC11: " & %CC[11])
+            set_text($cc_custom_label, "CC" & $cc_custom_input & ": " & %CC[$cc_custom_input])            
+        end if
+    end if
+end on

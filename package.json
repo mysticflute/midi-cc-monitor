@@ -1,0 +1,15 @@
+{
+  "name": "midi-cc-monitor",
+  "version": "0.0.1",
+  "description": "Monitor CC (Control Change) events in Kontakt and Logic Pro",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mysticflute/midi-cc-monitor.git"
+  },
+  "author": "Nathan McWilliams",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mysticflute/midi-cc-monitor/issues"
+  },
+  "homepage": "https://github.com/mysticflute/midi-cc-monitor#readme"
+}
