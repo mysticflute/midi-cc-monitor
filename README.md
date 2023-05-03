@@ -12,20 +12,20 @@ Without recording that automation data, it can easily get lost later as you put 
 
 These scripts will let you get that data after the fact without any guesswork.
 
-The first script, [Midi CC Monitor.js](<Midi CC Monitor.js>) works on any Logic Pro patch as a MIDI FX Scripter plugin. As long as you have this on the channel strip before you record anything (and turned on), you'll always have the exact CC values for that patch at any given time. Simply take that value and add it to the region automation.
+The first script, [Midi CC Monitor.js](<Midi CC Monitor.js>) works on any Logic Pro patch as a MIDI FX Scripter plugin. As long as you have this added to the channel strip before you record anything (and turned on), you'll always have the exact CC values for that patch at any given time. Simply take that value and add it to the region automation.
 
-The second script, [Midi CC Monitor.ksp](<Midi CC Monitor.ksp>), only works with Kontakt patches, however it also works even if it wasn't loaded before your recording. It also works in any DAW, not just Logic Pro.
+The second script, [Midi CC Monitor.ksp](<Midi CC Monitor.ksp>), only works with Kontakt patches, however it also works even if it wasn't loaded before your midi recording. It also works in any DAW, not just Logic Pro.
 
 ## Usage
 
 There are two different scripts depending on where and how you'd like to monitor CC values.
 
-### Any Instrument in Logic Pro
+### Monitor Any Instrument in Logic Pro
 
 [Midi CC Monitor.js](<Midi CC Monitor.js>) is used as a [Logic Pro Scripter](https://support.apple.com/guide/logicpro/use-the-scripter-lgce728c68f6/mac) script.
 
 1. On the instrument channel strip, add a new Scripter instance under MIDI FX: <br><br>
-   ![Scripter Step 1a](screenshots/scripter1.png)
+   ![Scripter Step 1a](screenshots/scripter1.png) &nbsp;&nbsp;
    ![Scripter Step 1b](screenshots/scripter2.png)
 2. Replace the default script with the contents of [Midi CC Monitor.js](<Midi CC Monitor.js>) in the editor window: <br><br>
    ![Scripter Step 2](screenshots/scripter3.png)
