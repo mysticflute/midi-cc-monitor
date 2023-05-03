@@ -27,7 +27,7 @@ There are two different scripts depending on where and how you'd like to monitor
 1. On the instrument channel strip, add a new Scripter instance under MIDI FX:
    ![Scripter Step 1](screenshots/scripter1.png)
    ![Scripter Step 2](screenshots/scripter2.png)
-2. Copy and paste the contents of the script file into the editor window:
+2. Replace the default script with the contents of [Midi CC Monitor.js](<Midi CC Monitor.js>) in the editor window:
    ![Scripter Step 3](screenshots/scripter3.png)
 3. Click the "Run Script" button:
    ![Scripter Step 4](screenshots/scripter4.png)
@@ -36,6 +36,8 @@ There are two different scripts depending on where and how you'd like to monitor
 
 Be sure the Scripter plugin is turned on at the start of your session. It can be turned off when it's no longer needed.
 
-_Pro Tip: Add it to your template!_
+You can also add additional CC numbers to monitor at the top of the script file.
+
+_Pro Tip: Add it to the instruments in your template!_
 
 ### In Kontakt
